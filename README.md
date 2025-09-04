@@ -37,22 +37,23 @@ pip install -r requirements.txt
 
 python src/mos_project/main.py
 
+```
 
 ---
 
 ### **5. Testing**
-```markdown
+
 ## Testing
 
 Run the test suite using:
 ```bash
 pytest tests/
-
+```
 
 ---
 
 ### **6. Academic Context**
-```markdown
+
 ## Academic Context
 
 This project is developed as part of a graduate-level **Speech Processing course**.  
