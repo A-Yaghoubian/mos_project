@@ -45,9 +45,19 @@ python src/mos_project/main.py
 
 ## Testing
 
-Run the test suite using:
 ```bash
-pytest tests/
+# Step 1: download one dataset part
+python src/mos_project/download_dataset.py
+
+# Step 2: extract wav files
+python src/mos_project/extract_mana_to_wavs.py --max_samples 200
+
+# Step 3: run NISQA
+python src/mos_project/run_nisqa.py
+
+# Step 4: evaluate (requires ground truth MOS CSV)
+python src/mos_project/eval_preds.py
+
 ```
 
 ---
