@@ -10,3 +10,5 @@ ds = load_dataset("MahtaFetrat/Mana-TTS", data_files=args.part, split="train")
 print("Downloaded partition:", args.part)
 print("Rows:", len(ds))
 print("Columns:", ds.column_names)
+# Save dataset locally
+ds.save_to_disk(args.outdir)

@@ -1,0 +1,8 @@
+# Audio files - WAV format
+*.wav
+*.WAV
+*.yaml
+*.yml
+*.arrow
+*.csv
+*.tar
