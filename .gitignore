@@ -7,4 +7,6 @@
 *.csv
 *.tar
 *.rar
-NISQA/wavs_augmented/
+
+# Base Repos
+NISQA_repo
