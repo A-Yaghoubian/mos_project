@@ -3,7 +3,6 @@ import tkinter as tk
 from tkinter import messagebox
 import pygame
 import json
-import os
 from pathlib import Path
 
 # Initialize pygame mixer
@@ -91,7 +90,6 @@ def open_music_player(root):
         score_var.set(int(existing) if existing is not None else 0)
 
     def next_music():
-        nonlocal_btn_guard = True
         stop_music()
         global MUSIC_FILE_INDEX
         if MUSIC_FILE_INDEX < len(player_list) - 1:
