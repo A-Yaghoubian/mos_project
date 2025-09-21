@@ -9,4 +9,4 @@
 *.rar
 
 # Base Repos
-NISQA_repo
+NISQA_repo/*
