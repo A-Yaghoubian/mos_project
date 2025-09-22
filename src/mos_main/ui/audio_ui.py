@@ -120,7 +120,7 @@ def open_music_player(root):
         # store/overwrite score
         score_json[player_number - 1][str(player_list[MUSIC_FILE_INDEX])] = score
         save_to_file(score_json)
-        messagebox.showinfo("Saved", f"Saved: Player {player_number} scored {score}/5 for {current_file_path()}")
+        messagebox.showinfo("Saved", f"Saved: Player {player_number} scored {score}/5 for {current_file_basename()}")
 
     def back_to_selection():
         stop_music()
