@@ -3,7 +3,7 @@ import subprocess
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--wav_dir", default="ui", help="Directory with wav files")
+parser.add_argument("--wav_dir", default="wavs_augmented", help="Directory with wav files")
 parser.add_argument("--outdir", default="results", help="Where to save predictions")
 args = parser.parse_args()
 

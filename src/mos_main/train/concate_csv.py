@@ -1,9 +1,10 @@
 import pandas as pd
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+csv_file1 = PROJECT_ROOT / "NISQA" / "results" / "NISQA_results.csv"
 
-# File paths
-csv_file1 = "file1.csv"
-csv_file2 = "file2.csv"
-output_file = "concatenated.csv"
+csv_file2 = "mfcc_features.csv"
+output_file = "train.csv"
 
 # Load CSVs
 df1 = pd.read_csv(csv_file1)
