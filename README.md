@@ -1,79 +1,146 @@
-# MOS Project
+# MOS Project 
 
-This repository contains an academic project on **Mean Opinion Score (MOS) estimation** for voice input.  
-The project is part of a **Speech Processing course** and focuses on developing a new approach for automatic MOS prediction.
+This repository contains a project focused on **automatic Mean Opinion Score (MOS) estimation** for speech signals.  
+MOS is a widely used metric in speech and audio quality assessment, traditionally obtained through subjective human listening tests. While accurate, these tests are expensive, time-consuming, and not scalable.  
 
-## Project Overview
+Our project addresses this challenge by building an automated system that predicts MOS using **signal processing techniques** and **machine learning models**. The system provides an efficient and consistent way to evaluate speech quality across large datasets without the need for extensive human evaluations.  
 
-- **Objective:** To design and evaluate methods for predicting MOS for speech samples.  
-- **Motivation:** Human MOS evaluation is costly and time-consuming. An automatic method can make the process faster and more scalable.  
-- **Contribution:** We aim to introduce a new idea for MOS estimation by combining modern signal processing and machine learning techniques.
+Key highlights of this project include:
+- Implementation of preprocessing, augmentation, and training pipelines for speech data  
+- Integration of baseline methods such as **[NISQA](https://github.com/gabrielmittag/NISQA)** for comparison  
+- Usage of publicly available datasets such as **[Mana-TTS](https://huggingface.co/datasets/MahtaFetrat/Mana-TTS)**  
+- Tools for dataset preparation, audio quality analysis, and result visualization  
+- Flexible training scripts for experimenting with different models and approaches  
 
-## Project Structure
+This project is designed for **educational and research purposes**, serving as both a framework for students learning about speech processing and a foundation for future research on MOS prediction.
 
+--- 
+
+🙏 Special thanks to the creators of **NISQA** and the **Mana-TTS dataset** for providing valuable resources that made this project possible.  
+
+--- 
+
+## 🚀 Project Overview 
+
+- **Objective**: Develop methods to automatically predict MOS for speech samples. 
+- **Motivation**: Human MOS evaluation is expensive and time-consuming. An automatic prediction system can scale to large datasets. 
+- **Contribution**: Introduce a novel approach combining signal features and machine learning models to estimate MOS. 
+
+--- 
+
+## 📁 Repository Structure
+
+```
 mos_project/
-│── README.md               # Documentation  
-│── requirements.txt        # Dependencies  
-│── setup.py                # Installation file  
-│── src/  
-│    └── mos_project/  
-│         ├── __init__.py  
-│         └── main.py       # Main entry point  
-│── tests/  
-     └── test_main.py       # Unit tests
-
-## Getting Started
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/A-Yaghoubian/mos_project.git
-cd mos_project
-
-python -m venv .venv
-source .venv/bin/activate   # Linux/Mac
-.venv\Scripts\activate      # Windows
-
-pip install -r requirements.txt
-
-python src/mos_project/main.py
-
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── .gitmodules
+├── data/              
+├── src/
+│   └── mos_main/
+│       ├── augmentation/
+│       ├── download/
+│       ├── train/
+│       ├── ui/
+│       ├── eval_preds.py
+│       ├── run_nisqa.py
+├── tests/
+│   └── test_main.py
 ```
 
----
+--- 
 
-### **5. Testing**
+## 🛠️ Getting Started / Installation Follow these steps to get a working environment: 
 
-## Testing
-
+1. Clone the repo
 ```bash
-# Step 1: download one dataset part
-python src/mos_project/download_dataset.py
+   git clone https://github.com/A-Yaghoubian/mos_project.git
+   cd mos_project
+   ```
 
-# Step 2: extract wav files
-python src/mos_project/extract_mana_to_wavs.py --max_samples 200
+2. (Optional but recommended) Create & activate a virtual environment
+```bash
+   python -m venv .venv
+   source .venv/bin/activate   # On macOS / Linux
+   .venv\Scripts\activate      # On Windows
+   ```
 
-# Step 3: run NISQA
-python src/mos_project/run_nisqa.py
+3. Install dependencies
+```bash
+   pip install -r requirements.txt
+   ```
 
-# Step 4: evaluate (requires ground truth MOS CSV)
-python src/mos_project/eval_preds.py
+--- 
 
-```
+## 🔍 Usage / Workflow Here is a typical pipeline you might follow (adapt based on your implementation): 
 
----
+1. **Download dataset**
+```bash
+   python src/mos_main/download/download_dataset.py
+   ```
 
-### **6. Academic Context**
+2. **Extract / Preprocess audio files**
+```bash
+   python src/mos_main/download/convert_wavs.py
+   ```
 
-## Academic Context
+3. **Augmentation / Process audio files**
+```bash
+   python src/mos_main/augmentation/augment_wavs.py
+   ```
 
-This project is developed as part of a graduate-level **Speech Processing course**.  
-It contributes to research in **speech quality assessment** and provides a foundation for future work in MOS prediction.
+4. **User Interface / User examination**
+```bash
+   python src/mos_main/ui/audio_ui.py
+   ```
 
-## Authors
+5. **Train with different ways**
+```bash
+   python src/mos_main/train/[train_way].py
+   ```
 
-- [Moein Khorasani]
-- [Ali Yaghoubian]
+6. **Evaluatioon**
+```bash
+   python src/mos_main/eval_preds.py
+   ```
 
-## License
+--- 
 
-This project is intended for academic and research purposes only.
+## 📚 Academic Context & Authors 
+
+This work is developed as part of a **Speech Processing** course / research project. 
+
+**Professor:** 
+- Dr. H Sameti 
+
+**Authors:** 
+- *Moein Khorasani*
+- *Ali Yaghoubian* 
+
+--- 
+
+## 📄 License 
+
+This project is intended for **academic and research purposes only**. 
+
+--- 
+
+## 🧠 Future Work & Extensions (Optional)
+
+- Exploring newer architectures for MOS prediction 
+- Incorporating additional acoustic / perceptual features 
+- Deploying as a web service or API 
+
+--- 
+
+## 📫 Contact & Acknowledgements 
+
+If you have questions, suggestions, or want to collaborate: 
+- Email: *[ayaghoubian2000@gmail.com]*
+
+Acknowledgements to any funding agencies, labs, advisors, or datasets you used. 
+
+--- 
+
+*Thank you for checking out this project!*
