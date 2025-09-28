@@ -1,4 +1,4 @@
-# MOS Project 
+# Auto MOS Prediction with NISQA for Persian
 
 This repository contains a project focused on **automatic Mean Opinion Score (MOS) estimation** for speech signals.  
 MOS is a widely used metric in speech and audio quality assessment, traditionally obtained through subjective human listening tests. While accurate, these tests are expensive, time-consuming, and not scalable.  
@@ -12,7 +12,7 @@ Key highlights of this project include:
 - Tools for dataset preparation, audio quality analysis, and result visualization  
 - Flexible training scripts for experimenting with different models and approaches  
 
-This project is designed for **educational and research purposes**, serving as both a framework for students learning about speech processing and a foundation for future research on MOS prediction.
+This project is designed for **educational and research purposes**, serving as both a framework for students learning about speech processing and a foundation for future research on MOS prediction. our simple documentation with Persian language is in **[Doc](https://docs.google.com/document/d/1F5ecEGLcXbL567xjhDInn82WpVJb6CDdAzqUfzILPWM/edit?usp=sharing)**
 
 --- 
 
