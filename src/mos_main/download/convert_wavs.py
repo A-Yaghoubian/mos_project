@@ -2,8 +2,8 @@ import os
 import librosa
 import soundfile as sf
 
-input_folder = 'wavs'
-output_folder = 'wavs_converted'
+input_folder = './data/wavs'
+output_folder = './data/wavs_converted'
 
 target_sr = 48000  # target sample rate
 

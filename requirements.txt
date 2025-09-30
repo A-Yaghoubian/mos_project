@@ -5,4 +5,5 @@ soundfile
 numpy
 scipy
 pandas
-audiomentations==0.20.0
+librosa
+audiomentations
