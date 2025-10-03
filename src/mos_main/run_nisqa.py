@@ -3,8 +3,8 @@ import subprocess
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--wav_dir", default="ui", help="Directory with wav files")
-parser.add_argument("--outdir", default="results", help="Where to save predictions")
+parser.add_argument("--wav_dir", default="./data/nisqa_vcc_mos_2018/200_selected", help="Directory with wav files")
+parser.add_argument("--outdir", default="./data/nisqa_vcc_mos_2018/results", help="Where to save predictions")
 args = parser.parse_args()
 
 nisqa_repo = os.path.join("", "NISQA")
@@ -14,10 +14,10 @@ cmd = [
     "python", "run_predict.py",
     "--mode", "predict_dir",
     "--pretrained_model", 'weights/nisqa.tar',
-    "--data_dir", args.wav_dir,
+    "--data_dir", os.path.abspath(args.wav_dir),
     "--num_workers", "0",
     "--bs", "10",
-    "--output_dir", args.outdir
+    "--output_dir", os.path.abspath(args.outdir)
 ]
 
 print("Running NISQA...")
