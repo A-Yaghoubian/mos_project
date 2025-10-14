@@ -6,8 +6,12 @@
 *.arrow
 *.csv
 *.tar
+*.tar.gz
 *.rar
 
 # Base Repos
 NISQA/*
 .vscode/*
+
+!Blizzard_2023.csv
+!200_selected.csv
