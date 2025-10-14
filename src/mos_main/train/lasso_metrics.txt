@@ -1,0 +1,4 @@
+RMSE: 0.7343
+Correlation (pearsonr): 0.3859
+Correlation (df.corr):  0.3859
+p-value (pearsonr): 0.000000

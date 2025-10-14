@@ -5,8 +5,8 @@ import pandas as pd
 from pathlib import Path
 
 # Path to your folder with audio files
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
-folder_path = PROJECT_ROOT / "data" / "wavs_augmented"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+folder_path = PROJECT_ROOT / "analyses" / "voices_converted"
 
 # List to hold features
 data = []
@@ -33,7 +33,7 @@ columns = ['filename'] + [f'mfcc_{i+1}' for i in range(13)]
 df = pd.DataFrame(data, columns=columns)
 
 # Save to CSV
-output_file = "mfcc_features.csv"
+output_file = "mfcc_features_1000.csv"
 df.to_csv(output_file, index=False)
 
 print(f"Saved MFCC features to {output_file}")

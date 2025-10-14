@@ -4,16 +4,17 @@ from sklearn.linear_model import Lasso
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+from scipy.stats import pearsonr
 
 # --- Load CSV ---
 csv_path = 'train.csv'
 df_full = pd.read_csv(csv_path)
 
 # Keep file_name separately
-file_names = df_full['file_name']
+file_names = df_full['filename']
 
 # Drop first column (file_name) for training
-df = df_full.drop(columns=['file_name'])
+df = df_full.drop(columns=['filename','filepath_deg','model'])
 
 # Separate features (all except last column) and target (last column)
 X = df.iloc[:, :-1]  # features
@@ -28,17 +29,27 @@ X_train, X_test, y_train, y_test, fn_train, fn_test = train_test_split(
     X_scaled, y, file_names, test_size=0.2, random_state=42
 )
 
-# Fit Lasso model
+# --- Fit Lasso model ---
 lasso = Lasso(alpha=0.03)  # tune alpha as needed
 lasso.fit(X_train, y_train)
 
-# Predict on train and test set
+# --- Predict on train and test set ---
 y_train_pred = lasso.predict(X_train)
 y_test_pred = lasso.predict(X_test)
 
-# Compute RMSE (just for test set)
+# --- Compute RMSE for Test Set ---
 rmse = np.sqrt(mean_squared_error(y_test, y_test_pred))
-print(f"RMSE on test set: {rmse:.4f}")
+
+# --- Compute Correlation (Method 1: scipy) ---
+corr_scipy, pval = pearsonr(y_test, y_test_pred)
+
+# --- Compute Correlation (Method 2: pandas) ---
+corr_pandas = pd.DataFrame({'score': y_test, 'pred': y_test_pred}).corr().iloc[0, 1]
+
+print("\n--- Test Set Evaluation ---")
+print(f"RMSE: {rmse:.4f}")
+print(f"Correlation (pearsonr): {corr_scipy:.4f}")
+print(f"Correlation (df.corr):  {corr_pandas:.4f}")
 
 # --- Print coefficients ---
 feature_names = X.columns  # original feature names
@@ -68,5 +79,15 @@ test_df = pd.DataFrame({
 # Concatenate train + test
 output_df = pd.concat([train_df, test_df], axis=0).reset_index(drop=True)
 
+# Save CSV
 output_df.to_csv('lasso_predictions.csv', index=False)
-print("\n Saved predictions for train+test to lasso_predictions_all.csv")
+print("\nSaved predictions for train+test to lasso_predictions.csv")
+
+# --- Optionally save metrics to a text file ---
+with open("lasso_metrics.txt", "w") as f:
+    f.write(f"RMSE: {rmse:.4f}\n")
+    f.write(f"Correlation (pearsonr): {corr_scipy:.4f}\n")
+    f.write(f"Correlation (df.corr):  {corr_pandas:.4f}\n")
+    f.write(f"p-value (pearsonr): {pval:.6f}\n")
+
+print("\nMetrics saved to lasso_metrics.txt")
