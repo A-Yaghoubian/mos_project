@@ -1,10 +1,10 @@
 import pandas as pd
 
 # Load the CSV file
-df = pd.read_csv(r"F:/sharif_Term2/Speech/mos/codes/mos_project/src/mos_main/train/train.csv")
+df = pd.read_csv(r"merged_english_1000_converted_voices.csv")
 
 # Replace with your actual column names
-col1 = "score"       # for example
+col1 = "mos"       # for example
 col2 = "mos_pred"  # for example
 
 # Compute correlation (Pearson by default)

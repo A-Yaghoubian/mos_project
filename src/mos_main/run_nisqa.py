@@ -3,8 +3,8 @@ import subprocess
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--wav_dir", default="ui", help="Directory with wav files")
-parser.add_argument("--outdir", default="results", help="Where to save predictions")
+parser.add_argument("--wav_dir", default="C:/Users/Moein/Desktop/speech/wavs_augmented", help="Directory with wav files")
+parser.add_argument("--outdir", default="C:/Users/Moein/Desktop/speech/wavs_augmented", help="Where to save predictions")
 args = parser.parse_args()
 
 nisqa_repo = os.path.join("", "NISQA")
